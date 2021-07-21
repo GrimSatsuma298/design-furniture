@@ -7,11 +7,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/contacto', (req, res, next)=>{
-  res.render('contact',{ title: 'CONTACT LEO DESIGN&FURNITURE', cssFile: 'contact' })
+  res.render('contact',{ 
+    title: 'CONTACT LEO DESIGN&FURNITURE', 
+    cssFile: 'contact' })
 })
 
 router.get('/about-us', (req, res, next) =>{
-  res.send("ABout us")
+  res.render('aboutus', {
+    title: 'CONTACT LEO DESIGN&FURNITURE', 
+    cssFile: 'aboutus'
+  })
 })
 
 module.exports = router;
