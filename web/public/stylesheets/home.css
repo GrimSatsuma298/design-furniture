@@ -100,7 +100,8 @@ header{
   margin: 7px 0;
 }
 
-.info button{
+.info a{
+  display: flex;
   width: 30%;
   height: 10%;
   margin: 10px 0;
@@ -108,7 +109,11 @@ header{
   background-color: #c5b4a4;
   outline: none;
   border: none;
+  justify-content: center;
+  align-items: center;
 }
+
+
 
 .about-us img{
   width: 30%;

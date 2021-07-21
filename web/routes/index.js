@@ -10,4 +10,8 @@ router.get('/contacto', (req, res, next)=>{
   res.render('contact',{ title: 'CONTACT LEO DESIGN&FURNITURE', cssFile: 'contact' })
 })
 
+router.get('/about-us', (req, res, next) =>{
+  res.send("ABout us")
+})
+
 module.exports = router;
