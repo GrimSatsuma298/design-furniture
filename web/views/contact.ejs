@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+<%- include('partials/head', {title: title }) %>
+<body>
+    <!-- HEADER -->
+    <%- include('partials/headNavbar') %>
+    <div class="main-section">
+        <div class="main-image">
+            <img src="/images/contacto.jpeg" alt="">
+        </div>
+        <div class="contact-info">
+            <h1>CONTACTO</h1>
+            <p class="message">Escribenos tu mensaje</p>
+            <form action="" >
+                <label for="name">Nombre</label>
+                <input type="text" id="name">
+                <label for="lastName">Apellido</label>
+                <input type="text" id="lastName">
+                <label for="email">Correo</label>
+                <input type="text" id="email">
+                <label for="msg">Mensaje</label>
+                <textarea name="" id="msg" cols="30" rows="10"></textarea>
+                <button type="submit" class="send-button">Enviar mensaje</button>
+            </form>
+            <div class="business">
+                <div class="business-info">
+                    <p>Direccion</p>
+                    <p class="bold-p">Plaza la reserva(Local 4), Hacienda El Campanario, El Campanario, 76146 Santiago de Querétaro, Qro.</p>
+                </div>
+                <div class="business-info">
+                    <p>Número</p>
+                    <p class="bold-p">442-359-4886</p>
+                </div>
+                <div class="business-info">
+                    <p>Correo</p>
+                    <p class="bold-p">leodesign@gmail.com</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
