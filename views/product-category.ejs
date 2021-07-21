@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+<%- include('partials/head', {title: title }) %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include('partials/headNavbar') %>
+
+            <section class="main-section">
+                <div class="main-image">
+                    <img src="/images/category/<%= listProducts.category %>/<%= listProducts.product[0].img%>" alt="">
+                </div>
+                <div class="category-info">
+                    <h1>0<%= index %>.</h1>
+                    <h1 class="name-category">
+                        <%= listProducts.category %>
+                    </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ipsam necessitatibus explicabo
+                        saepe dignissimos cumque facilis facere reiciendis inventore unde, assumenda est aut nobis rem
+                        alias! Consequatur maiores blanditiis veritatis.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, sunt autem. Quibusdam
+                        necessitatibus a nisi? Temporibus autem est tenetur! Aliquid ipsum iure molestias esse nemo
+                        atque laboriosam iste, assumenda quasi.</p>
+                </div>
+            </section>
+            <section class="all-products">
+                <% listProducts.product.forEach(product=> { %>
+                    <% if(product.id > 1) { %>
+                        <div class="product">
+                            <img src="/images/category/<%= listProducts.category %>/<%= product.img%>" alt="">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quis vitae minima numquam
+                                laudantium eveniet neque corrupti aliquid voluptas sapiente. Quidem sint eaque
+                                voluptates
+                                explicabo fugiat veritatis beatae maxime dolore?
+                            </p>
+                        </div>
+                    <%}%>
+                <% }) %>
+            </section>
+    </body>
+
+</html>

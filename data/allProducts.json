@@ -1,0 +1,87 @@
+[
+    {
+        "category": "sillas",
+        "product": [
+            {
+                "id": 1,
+                "img": "mainSilla.jpeg"
+            },
+            {
+                "id": 2,
+                "img": "silla1.png"
+            },
+            {
+                "id": 3,
+                "img": "silla2.png"
+            },
+            {
+                "id": 4,
+                "img": "silla3.png"
+            }
+            
+        ]
+    },
+    {
+        "category": "mesas",
+        "product": [
+            {
+                "id": 1,
+                "img": "mainMesa.png"
+            },
+            {
+                "id": 2,
+                "img": "mesas1.png"
+            },
+            {
+                "id": 3,
+                "img": "mesas2.png"
+            },
+            {
+                "id": 4,
+                "img": "mesas3.png"
+            }
+        ]
+    },
+    {
+        "category": "sillones",
+        "product": [
+            {
+                "id": 1,
+                "img": "mainSillones.png"
+            },
+            {
+                "id": 2,
+                "img": "sillones1.png"
+            },
+            {
+                "id": 3,
+                "img": "sillones2.png"
+            },
+            {
+                "id": 4,
+                "img": "sillones3.png"
+            }
+        ]
+    },
+    {
+        "category": "lamparas",
+        "product": [
+            {
+                "id": 1,
+                "img": "mainLampara.png"
+            },
+            {
+                "id": 2,
+                "img": "lamparas1.png"
+            },
+            {
+                "id": 3,
+                "img": "lamparas2.png"
+            },
+            {
+                "id": 4,
+                "img": "lamparas3.png"
+            }
+        ]
+    }
+]

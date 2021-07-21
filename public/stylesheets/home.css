@@ -1,0 +1,117 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+
+
+header{
+  display: flex;
+  padding: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.logo{
+  margin-left: 50px;
+  text-align: center;
+  position: relative;
+}
+
+.sub-name{
+  position: absolute;
+  text-align: center;
+  bottom: 3px;
+}
+
+.bold-name{
+  font-weight: 900;
+  font-size: 85px;
+}
+
+.menu-bar{
+  width: 60%;
+  align-self: flex-end;
+}
+
+.menu-bar ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  
+}
+
+.menu-bar li a{
+  color: black;
+  font-size: 19px;
+}
+
+.main-image img{
+  width: 100%;
+}
+
+/* BODY */
+
+.categories{
+  margin: 30px 0;
+  display: flex;
+}
+
+.category img{
+  width: 90%;
+}
+
+.category{
+  text-align: center;
+}
+
+/* ABOUT US */
+.about-us{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.info{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.info h4{
+  text-align: center;
+  border-bottom: 2px solid #c5b4a4;
+  margin-bottom: 20px;
+}
+.info p{
+  margin: 7px 0;
+}
+
+.info button{
+  width: 30%;
+  height: 10%;
+  margin: 10px 0;
+  align-self: center;
+  background-color: #c5b4a4;
+  outline: none;
+  border: none;
+}
+
+.about-us img{
+  width: 30%;
+}
+
+
