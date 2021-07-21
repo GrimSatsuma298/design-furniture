@@ -6,6 +6,8 @@ const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/allProducts.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+
+
 /* GET all products page. */
 router.get('/', function(req, res, next) {
   res.render('products', 

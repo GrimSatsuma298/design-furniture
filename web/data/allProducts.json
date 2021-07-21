@@ -17,6 +17,18 @@
             {
                 "id": 4,
                 "img": "silla3.png"
+            },
+            {
+                "id": 5,
+                "img": "sillas4.png"
+            },
+            {
+                "id": 6,
+                "img": "sillas5.png"
+            },
+            {
+                "id": 7,
+                "img": "sillas6.png"
             }
             
         ]
@@ -39,6 +51,18 @@
             {
                 "id": 4,
                 "img": "mesas3.png"
+            },
+            {
+                "id": 5,
+                "img": "mesas4.png"
+            },
+            {
+                "id": 6,
+                "img": "mesas5.png"
+            },
+            {
+                "id": 7,
+                "img": "mesas6.png"
             }
         ]
     },
@@ -60,6 +84,18 @@
             {
                 "id": 4,
                 "img": "sillones3.png"
+            },
+            {
+                "id": 5,
+                "img": "sillones4.png"
+            },
+            {
+                "id": 6,
+                "img": "sillones5.png"
+            },
+            {
+                "id": 7,
+                "img": "sillones6.png"
             }
         ]
     },
@@ -81,6 +117,18 @@
             {
                 "id": 4,
                 "img": "lamparas3.png"
+            },
+            {
+                "id": 5,
+                "img": "lamparas4.png"
+            },
+            {
+                "id": 6,
+                "img": "lamparas5.png"
+            },
+            {
+                "id": 7,
+                "img": "lamparas6.png"
             }
         ]
     }
