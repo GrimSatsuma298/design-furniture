@@ -17,6 +17,11 @@ a{
 
 
 header{
+  z-index: 10;
+  position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
   display: flex;
   padding: 15px;
   flex-wrap: wrap;
@@ -55,6 +60,10 @@ header{
 .menu-bar li a{
   color: black;
   font-size: 19px;
+}
+
+.main-image{
+  margin-top: 180px;
 }
 
 .main-image img{

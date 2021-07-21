@@ -17,6 +17,11 @@
   
   
   header{
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
     display: flex;
     padding: 15px;
     flex-wrap: wrap;
@@ -59,7 +64,7 @@
   /* BODY */
 
   .main-section{
-    margin-top: 65px;
+    margin-top: 180px;
       display: flex;
   }
 
@@ -122,4 +127,12 @@
     font-weight: bold;
     margin-right: auto;
     margin-left: auto;
+    transition: all 1s;
+}
+
+.send-button:hover{
+  cursor: pointer;
+  border: 2px solid white;
+  background-color: black;
+  color: white;
 }

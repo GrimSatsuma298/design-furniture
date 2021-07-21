@@ -17,6 +17,11 @@
   
   
   header{
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
     display: flex;
     padding: 15px;
     flex-wrap: wrap;
@@ -59,6 +64,7 @@
   /* BODY */
 
   .main-image{
+    margin-top: 180px;
       position: relative;
   }
   .main-image img{
