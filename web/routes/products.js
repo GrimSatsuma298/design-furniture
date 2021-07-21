@@ -21,7 +21,15 @@ router.get('/detail/:category/:id', (req, res, next) =>{
   const category = req.params.category;
   const id = req.params.id;
 
-  res.send("" + category + " " + id)
+  const productsCategory = products.find(p=> p.category == category)
+  const productDetail = productsCategory.product.find(p=> p.id == id)
+
+  res.render('detail', {
+    title: "DETAIL LEO DESIGN&FURNITURE",
+    cssFile: 'detail',
+    category: category,
+    detail: productDetail
+  })
 })
 
 module.exports = router;

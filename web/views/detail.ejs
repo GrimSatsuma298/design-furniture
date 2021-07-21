@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+<%- include('partials/head', {title: title }) %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include('partials/headNavbar') %>
+            <div class="main-section">
+                <div class="main-image">
+                    <img src="/images/category/<%= category %>/<%= detail.img %>" alt="">
+                </div>
+                <div class="item-info">
+                    <h1>LEO'S <%= category %>
+                    </h1>
+                    <div class="prices">
+                        <div class="money">
+                            <span class="final-price">$11,499.00</span>
+                            <span class="normal-price">$14,499.00</span>
+                        </div>
+                        <div class="icons">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-share-square"></i>
+                        </div>
+
+                    </div>
+                    <p class="bold-p">Detalles del producto</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure inventore qui delectus quod quam.
+                        Recusandae, fugiat explicabo! Doloribus magnam odio nobis veniam, assumenda atque et amet porro
+                        dolorum deleniti eum!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum error fugit unde, et cum
+                        laboriosam repellat, ut ab expedita recusandae eligendi earum tempore quasi obcaecati pariatur,
+                        mollitia consectetur. Perferendis, deserunt.
+                    </p>
+                    <p class="bold-p">Materiales</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure inventore qui delectus quod quam.
+                        Recusandae, fugiat explicabo! Doloribus magnam odio nobis veniam, assumenda atque et amet porro
+                        dolorum deleniti eum!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum error fugit unde, et cum
+                        laboriosam repellat, ut ab expedita recusandae eligendi earum tempore quasi obcaecati pariatur,
+                        mollitia consectetur. Perferendis, deserunt.
+                    </p>
+                    <p class="bold-p">Color</p>
+                    <p>Turquesa</p>
+                    <p class="bold-p">Tela</p>
+                    <p>Terciopelo</p>
+                    <p class="bold-p">Cantidad</p>
+                    <p class="bold-p">Entregas de 3 a 5 días hables</p>
+                    <button type="submit" class="send-button">Agregar al carrito</button>
+                </div>
+
+                <div class="item-images">
+                    <div class="all-images"></div>
+                    <div class="all-images"></div>
+                    <div class="all-images"></div>
+                    <div class="all-images"></div>
+                </div>
+            </div>
+
+    </body>
+
+</html>
