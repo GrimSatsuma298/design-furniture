@@ -6,23 +6,25 @@
     <body>
         <!-- HEADER -->
         <%- include('partials/headNavbar') %>
-                <div class="title">
-                    <h1>NUESTROS <br>PRODUCTOS</h1>
-                </div>
+            <div class="title">
+                <h1>NUESTROS <br>PRODUCTOS</h1>
+            </div>
 
-                <section class="allProducts">
-                    <% products.forEach(function(section, index) { %>
-                        <div class="category">
-                            <h3>
-                                <%= section.category.toUpperCase()%>
-                            </h3>
-                            <div class="allItems">
-                                <% section.product.forEach(item=>{ %>
-                                    <% if(item.id==1 ) { %>
-                                        <button type="button" class="button-more <%= index %>"
-                                            onclick="showMore(this)">Ver mas</button>
-                                        <% } else if(item.id> 1 && item.id <= 4) { %>
-                                                <div class="item">
+            <section class="allProducts">
+                <% products.forEach(function(section, index) { %>
+                    <div class="category">
+                        <h3>
+                            <%= section.category.toUpperCase()%>
+                        </h3>
+                        <div class="allItems">
+                            <% section.product.forEach(item=>{ %>
+                                <% if(item.id==1 ) { %>
+                                    <button type="button" class="button-more <%= index %>" onclick="showMore(this)">Ver
+                                        mas</button>
+                                    <% } else if(item.id> 1 && item.id <= 4) { %>
+
+                                            <div class="item">
+                                                <a href="/products/detail/<%= section.category %>/<%= item.id %>">
                                                     <img src="/images/category/<%= section.category %>/<%= item.img %>"
                                                         alt="">
                                                     <h5>Lorem ipsum dolor sit, amet </h5>
@@ -30,9 +32,12 @@
                                                         Incidunt fuga expedita quae, perferendis voluptatem voluptas
                                                         officiis iste harum voluptate ut excepturi et enim suscipit
                                                         iusto veniam repudiandae amet, debitis alias!</p>
-                                                </div>
-                                                <% } else { %>
-                                                    <div class="item more i-<%= index %>">
+                                                </a>
+                                            </div>
+
+                                            <% } else { %>
+                                                <div class="item more i-<%= index %>">
+                                                    <a href="/products/detail/<%= section.category %>/<%= item.id %>">
                                                         <img src="/images/category/<%= section.category %>/<%= item.img %>"
                                                             alt="">
                                                         <h5>Lorem ipsum dolor sit, amet </h5>
@@ -40,15 +45,16 @@
                                                             Incidunt fuga expedita quae, perferendis voluptatem voluptas
                                                             officiis iste harum voluptate ut excepturi et enim suscipit
                                                             iusto veniam repudiandae amet, debitis alias!</p>
-                                                    </div>
-                                                    <% } %>
+                                                    </a>
+                                                </div>
+                                                <% } %>
 
-                                                        <% }) %>
+                                                    <% }) %>
 
-                            </div>
                         </div>
-                        <% }) %>
-                </section>
+                    </div>
+                    <% }) %>
+            </section>
 
     </body>
     <script>
@@ -90,7 +96,7 @@
                         elements[i].style.display = "inline";
                         elements[i].style.marginTop = "20px";
                     }
-                } else{
+                } else {
                     obj.textContent = "Ver mas";
                     clicked[i].clicked = false
                     var elements = document.getElementsByClassName(className)
