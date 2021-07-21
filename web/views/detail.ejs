@@ -48,12 +48,12 @@
                     <p class="bold-p">Entregas de 3 a 5 días hables</p>
                     <button type="submit" class="send-button">Agregar al carrito</button>
                 </div>
-
-                <div class="item-images">
-                    <div class="all-images"></div>
-                    <div class="all-images"></div>
-                    <div class="all-images"></div>
-                    <div class="all-images"></div>
+                <div class="all-images">
+                    <% for(let i in detail.miniatures){ %>
+                        <div class="item-image">
+                            <img src="/images/category/<%= category %>/<%= detail.miniatures[i] %>" alt="">
+                        </div>
+                        <% } %>
                 </div>
             </div>
 

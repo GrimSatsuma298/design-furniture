@@ -30,7 +30,6 @@
                 "id": 7,
                 "img": "sillas6.png"
             }
-            
         ]
     },
     {
@@ -91,7 +90,13 @@
             },
             {
                 "id": 6,
-                "img": "sillones5.png"
+                "img": "sillones5.png",
+                "miniatures": [
+                    "sillones5-detail1.png",
+                    "sillones5-detail2.png",
+                    "sillones5-detail3.png",
+                    "sillones5-detail4.png"
+                ]
             },
             {
                 "id": 7,
