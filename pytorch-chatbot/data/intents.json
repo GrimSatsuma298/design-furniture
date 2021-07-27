@@ -90,7 +90,10 @@
         "Cuanto tiempo tarda el envio?",
         "Hay envio?",
         "Cuando llegara mi envio?",
-        "Envios tienen?"
+        "Envios tienen?",
+        "Cuanto se tardan los envios?",
+        "En cuanto llega mi paquete?",
+        "Existen los envios?"
       ],
       "responses": [
         "El envio tarda de 2-4 dias",
@@ -112,7 +115,10 @@
       ],
       "responses": [
         "De acuerdo! Te puedo ayudar con algo mas?",
-        "Perfecto, un placer ayudar!"
+        "Perfecto, un placer ayudar!",
+        "Con que te puedo ayudar?",
+        "Que preguntas tienes?",
+        "Tienes alguna pregunta?"
       ]
     },
     {
