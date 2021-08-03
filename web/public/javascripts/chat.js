@@ -1,84 +1,90 @@
-var collap = document.getElementsByClassName("collapsible");
-var closeChat = document.getElementsByClassName("close-tag");
-console.log(collap)
+var buttonBot = document.getElementById("chat-button");
+var closeChat = document.getElementById("close-tag");
+var title = document.getElementsByClassName("chat-title");
+var container = document.querySelector(".chat-container");
+var chatbox = document.querySelector("#chatbox");
+var content = buttonBot.nextElementSibling;
+
 
 // Collapse
-for (let i = 0; i < collap.length; i++) {
-  console.log("enter")
-  collap[i].addEventListener("click", function () {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
+buttonBot.onclick = ()=>{
+  // Show chat view
+  content.style.display = "block"; 
+};
 
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-      this.style.display = "none";
-      closeChat[0].addEventListener("click", function () {
-        content.style.maxHeight = null;
-
-        collap[0].style.display = "inline";
-      });
-    }
-  });
-}
-
+closeChat.onclick = ()=>{
+  // Hide chat view
+  content.style.display = "none";
+};
 
 // Time
 function getTime() {
-    let today = new Date();
-    hours = today.getHours();
-    minutes = today.getMinutes();
+  let today = new Date();
+  hours = today.getHours();
+  minutes = today.getMinutes();
 
-    hours = hours < 10 ? hours="0"+hours : hours;
-    minutes = minutes < 10 ? minutes="0"+minutes : minutes;
+  hours = hours < 10 ? (hours = "0" + hours) : hours;
+  minutes = minutes < 10 ? (minutes = "0" + minutes) : minutes;
 
-    let time = hours + ":" + minutes;
-    return time;
+  let time = hours + ":" + minutes;
+  return time;
 }
 
+function firstBotMessage() {
+  let firstMessage = "Hello there";
+  document.getElementById("botStarterMessage").innerHTML =
+    '<p class="botText"><span>' + firstMessage + "</span></p>";
 
+  let time = getTime();
+  $("#chat-timestamp").append(time);
 
-function firstBotMessage(){
-    let firstMessage = "Hello there";
-    document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
-
-    let time = getTime();
-    $("#chat-timestamp").append(time)
-    document.getElementById("userInput").scrollIntoView(false);
 }
 
+function getHardResponse(userText) {
+  let botResponse = getBotResponse(userText);
+  let time = getTime();
+  let timestamp = '<h5 id="chat-timestamp">' + time + "</h5>";
+  let botHTML = '<p class="botText"><span>' + botResponse + "</span></p>";
+  $("#chatbox").append(timestamp); // Adds the response hour
+  $("#chatbox").append(botHTML);  container.scrollTop = chatbox.scrollHeight;
+    // Go to last bot response
+  container.scrollTop = chatbox.scrollHeight;
 
-function getHardResponse(userText){
-    let botResponse = getBotResponse(userText);
-    let botHTML = '<p class="botText"><span>' + botResponse + '</span></p>';
-    $("#chatbox").append(botHTML);
 
-    document.getElementById("chat-bar-bottom").scrollIntoView(true);
 }
 
-function getResponse(){
-    let userText = $("#textInput").val();
-    userText = userText != "" ? userText : "Empty text";
-    let userHTML = '<p class="userText"><span>' + userText + '</span></p>';
-    $("#textInput").val("");
-    $("#chatbox").append(userHTML);
-    document.getElementById("chat-bar-bottom").scrollIntoView(true);
-    setTimeout(() => {
-        getHardResponse(userText);
-    }, 1000)
+function getResponse() {
+  let userText = $("#textInput").val();
+  userText = userText != "" ? userText : "Empty text";
+  let userHTML = '<p class="userText"><span>' + userText + "</span></p>";
+  $("#textInput").val("");
+  $("#chatbox").append(userHTML);
+  // Loading response dots
+  let loadDots =
+    '<p id="loadingDots" class="botText"><span class="dot"><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i></span></p>';
+  $("#chatbox").append(loadDots);
+  // Go to last user text
+  container.scrollTop = chatbox.scrollHeight;
 
+  setTimeout(() => {
+    deleteLoadingDots();
+    getHardResponse(userText);
+  }, 2000);
+}
+
+function deleteLoadingDots() {
+  $("#loadingDots").remove();
 }
 
 // Send user's text if button clicked
-function sendButton(){
-    getResponse();
+function sendButton() {
+  getResponse();
 }
 // Or enter pressed
-$("#textInput").keypress(function(e) {
-    if(e.which == 13) {getResponse()}
-})
+$("#textInput").keypress(function (e) {
+  if (e.which == 13) {
+    getResponse();
+  }
+});
 
-// firstBotMessage();
-
-
+firstBotMessage();
