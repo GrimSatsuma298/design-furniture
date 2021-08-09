@@ -1,19 +1,34 @@
 <header>
-    <a href="/">
-        <div class="logo">
-            <p class="bold-name">LEO</p>
-            <p class="sub-name">DESIGN & FURNITURE</p>
-        </div>
-    </a>
-    
-    <nav class="menu-bar">
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/about-us">SOBRE NOSOTROS</a></li>
-            <li><a href="/products">PRODUCTOS</a></li>
-            <li><a href="/contacto">CONTACTO</a></li>
-            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-            <li><a href="#"><i class="fas fa-user"></i></a></li>
-        </ul>
-    </nav>
+  <a href="/">
+    <div class="logo">
+      <p class="bold-name">LEO</p>
+      <p class="sub-name">DESIGN & FURNITURE</p>
+    </div>
+  </a>
+
+  <nav class="menu-bar">
+    <div class="session">
+      <% if(locals.user){ %>
+      <p>Bienvenido <%=user.name%></p>
+      <p><a href="/user/logout" style="font-size: 14px;">Cerrar sesion</a></p>
+      <%} else{ %>
+      <p>
+        <a href="/user/login">Inicia sesion</a> ó
+        <a href="/user/register">Registrate</a>
+      </p>
+      <%} %>
+    </div>
+    <ul>
+      <li><a href="/">HOME</a></li>
+      <li><a href="/about-us">SOBRE NOSOTROS</a></li>
+      <li><a href="/products">PRODUCTOS</a></li>
+      <li><a href="/contacto">CONTACTO</a></li>
+      <li>
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fas fa-user"></i></a>
+      </li>
+    </ul>
+  </nav>
 </header>
