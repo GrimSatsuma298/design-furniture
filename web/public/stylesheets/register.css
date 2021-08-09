@@ -1,0 +1,74 @@
+
+/* BODY */
+
+.main-section {
+  margin-top: 180px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 75px;
+  font-weight: bolder;
+}
+h4 {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.register-form {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input::-webkit-input-placeholder {
+  font-weight: normal;
+  color: #000;
+}
+
+input {
+  font-size: 1.1em;
+  width: 100%;
+  background-color: rgba(194, 179, 165, 0.3);
+  outline: none;
+  border: none;
+  margin: 15px 0;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.ch-session {
+  width: 5%;
+}
+label {
+  width: 95%;
+  text-align: left;
+  align-self: center;
+}
+
+.register-form button {
+  width: 30%;
+  background-color: rgb(194, 179, 165);
+  font-weight: bold;
+  padding: 5px;
+  font-size: 21px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+
+.feedback{
+    /* width: 45%; */
+    text-align: left;
+    max-height: 20px;
+    color: red;
+}
