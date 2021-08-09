@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    margin: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  a{
+    color: black;
+    text-decoration: none;
+  }
+  
+  
+  
+  header{
+    z-index: 10;
+    position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: white;
+    display: flex;
+    padding: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .logo{
+    margin-left: 50px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .sub-name{
+    position: absolute;
+    text-align: center;
+    bottom: 3px;
+  }
+  
+  .bold-name{
+    font-weight: 900;
+    font-size: 85px;
+  }
+  
+  .menu-bar{
+    width: 60%;
+    height: 134px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .menu-bar ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    
+  }
+  
+  .menu-bar li a{
+    color: black;
+    font-size: 19px;
+  }
+  
+  .session p{
+    text-align: right;
+    margin-right: 15px;
+  }
+  .session a{
+    text-decoration: underline;
+  }
+  
