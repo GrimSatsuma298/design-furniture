@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- HEAD -->
+  <%- include('partials/head', {title: title }) %>
+
+  <body>
+    <!-- HEADER -->
+    <%- include('partials/headNavbar') %>
+    <section class="main-section">
+      <h1>INICIAR SESIÓN</h1>
+      <h4>Inicia sesión a tu cuenta</h4>
+      <form action="/user/login" method="POST" class="register-form">
+        <% if(locals.errors && errors.email) {%>
+        <p class="feedback"><%= errors.email.msg %></p>
+        <% } %>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Correo"
+          value="<%= locals.old && old.email %>"
+        />
+        <% if(locals.errors && errors.password) {%>
+        <p class="feedback"><%= errors.password.msg %></p>
+        <% } %>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Contraseña"
+        />
+        <input
+          type="checkbox"
+          name="chsession"
+          id="ch-session"
+          class="ch-session"
+        />
+        <label for="ch-session">Mantener la sesion iniciada</label>
+        <button type="submit">INICIAR SESIÓN</button>
+        <div class="send-button"></div>
+      </form>
+      <a href="/user/register">¿No tienes cuenta? Regístrate</a>
+      <br />
+      <br /><br />
+      <a href="#">He olvidado mi contraseña</a>
+    </section>
+  </body>
+  <script
+    src="/javascripts/botIntegration.js"
+    type="text/javascript"
+    defer
+  ></script>
+</html>

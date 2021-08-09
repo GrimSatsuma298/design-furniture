@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- HEAD -->
+  <%- include('partials/head', {title: title }) %>
+
+  <body>
+    <!-- HEADER -->
+    <%- include('partials/headNavbar') %>
+    <section class="main-section">
+      <h1>REGÍSTRATE</h1>
+      <h4>Crea tu cuenta</h4>
+      <form action="/user/register" method="POST" class="register-form">
+        <% if(locals.errors && errors.name) {%>
+        <p class="feedback"><%= errors.name.msg %></p>
+        <% } %>
+        <input
+          type="text"
+          name="name"
+          placeholder="Nombre"
+          class="name"
+          value="<%= locals.old && old.name %>"
+        />
+        <% if(locals.errors && errors.lastName) {%>
+        <p class="feedback"><%= errors.lastName.msg %></p>
+        <% } %>
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Apellido"
+          class="lastName"
+          value="<%= locals.old && old.lastName %>"
+        />
+        <% if(locals.errors && errors.email) {%>
+        <p class="feedback"><%= errors.email.msg %></p>
+        <% } %>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Correo"
+          value="<%= locals.old && old.email %>"
+        />
+        <% if(locals.errors && errors.password) {%>
+        <p class="feedback"><%= errors.password.msg %></p>
+        <% } %>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Contraseña"
+        />
+        <% if(locals.errors && errors.confirmPswd) {%>
+        <p class="feedback"><%= errors.confirmPswd.msg %></p>
+        <% } %>
+        <input
+          type="password"
+          name="confirmPswd"
+          id="confirmPswd"
+          placeholder="Confirmar contraseña"
+        />
+
+        <button type="submit">REGÍSTRATE</button>
+        <div class="send-button"></div>
+      </form>
+      <a href="/user/login">¿Ya tienes cuenta? Inicia sesión</a>
+      <br />
+      <br />
+    </section>
+  </body>
+  <script
+    src="/javascripts/botIntegration.js"
+    type="text/javascript"
+    defer
+  ></script>
+</html>
