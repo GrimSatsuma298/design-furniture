@@ -1,5 +1,6 @@
 import json
 import numpy as np
+import pathlib
 
 from termcolor import colored
 
@@ -7,14 +8,14 @@ from termcolor import colored
 test = [('cual', 'PRON', 'PRON'), ('es', 'AUX', 'AUX'), ('el', 'DET', 'DET'), ('precio', 'NOUN', 'NOUN'), ('de', 'ADP', 'ADP'), ('la', 'DET', 'DET'), ('mesa', 'NOUN', 'NOUN'), ('1', 'NUM', 'NUM')]
 senttest = "cual es el precio y material de la mesa 1"
 
-
-with open('./data/testProducts.json') as file:
+with open(pathlib.Path(__file__).parent.resolve()/'./data/testProducts.json') as file:
     products = json.load(file)
 
 # Translated product object attributes
 productsKeys = ["Nombre", "Precio", "Colores", "Materiales", "m2", "Imagen"]
 
 def findProduct(pos_list, sentence):
+    botAnswer = ''
     # Printing general features
     print(colored("Caracteristicas generales:",'red'))
     caracteristics = ""
@@ -30,22 +31,23 @@ def findProduct(pos_list, sentence):
             id = pos_list[i][0]
             # If product is founded in user's input
             # filter JSON to find its category (product as NOUN)
-            productObjects = [p for p in products if p["category"] == productToFindType]
+            productObjects = [p for p in products if p["category"] == productToFindType]        
             # Find the attributes the user wants
             attributeList = findAttributeList(sentence)
             if len(productObjects) > 0:
                 try:
-                    productFinded = [obj for obj in productObjects[0]['product'] if obj['id'] == int(id)][0]
+                    # Appending answer for each product
+                    botAnswer += fixAnswer(productObjects, id, attributeList)
                     print(
                 colored(f"Caracteristicas\n{productToFindType} {id}", "yellow"))
-                    for idx, (key, value) in enumerate(productFinded.items()):
-                        if attributeList[idx] == 1:
-                            print(colored(f"{key} --> {value}", "green"))
+                    
                 except IndexError:
                     print(colored('Este articulo no existe', 'red'))
+                    botAnswer = 'Este articulo no existe'
             else:
-                print(colored("No pude encontrarlo, vuelve a escribir el prodcuto!",'cyan'))
-
+                print(colored("No pude encontrarlo, vuelve a escribir el producto!",'cyan'))
+                botAnswer = 'No pude encontrarlo, vuelve a escribir el producto!'
+    return botAnswer
 
 def findAttributeList(sentence):
     # Creating each word element in list
@@ -81,3 +83,37 @@ def findAttributeList(sentence):
 
     return correctAttr
     
+def fixAnswer(product, id, attributeList):
+    # Creating empty answer
+    botAnswer = ''
+    # Adding id attribute to list in order to get correct attributes idx
+    keys = np.insert(productsKeys,0,'ID')
+    attrListES = []
+    for i in range(len(keys)):
+        # Filtering to get ONLY attributes asked
+        if attributeList[i] == 1:
+            attribute = keys[i]
+            # Changing attributes to singular
+            if attribute == 'Colores': attribute = 'Color'
+            if attribute == 'Materiales': attribute = 'Material'
+            attrListES.append(attribute)
+    # Finding product 
+    productFinded = [obj for obj in product[0]['product'] if obj['id'] == int(id)][0]  
+
+    for attr in attrListES:
+        valor = ''
+        # Concatenating answer for every attribute asked for 1 product
+        # Modify to wanted style answer
+        # e.x: Precio mesa 4 es
+        botAnswer += f"{attr} {product[0]['category']} {id} es "
+        for idx, (key, value) in enumerate(productFinded.items()):
+            # Finding value of asked attribute
+            if attributeList[idx] == 1:
+                valor = str(value) + '\n'
+                # Appending value to final answer
+                botAnswer += valor
+                # Setting attribute to 0 in order to get next attribute
+                attributeList[idx] = 0
+                break
+            
+    return botAnswer
