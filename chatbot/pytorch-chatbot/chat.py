@@ -1,6 +1,7 @@
 import random
 import json
-from nltk.util import pr
+import pathlib
+from numpy import product
 import spacy
 
 from termcolor import colored
@@ -12,10 +13,10 @@ from nltk_utils import *
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('./data/intents.json', 'r') as file:
+with open(pathlib.Path(__file__).parent.resolve()/'./data/intents.json', 'r') as file:
     intents = json.load(file)
 
-FILE = "./data/data.pth"
+FILE = pathlib.Path(__file__).parent.resolve()/"./data/data.pth"
 data = torch.load(FILE)
 POS_tagger = spacy.load("es_core_news_md")
 
@@ -32,12 +33,12 @@ model.eval()
 
 bot_name = "Exo System"
 
-print("\n\t\tHablemos! (escribe 'salir' para terminar)")
-while True:
-    # sentence = "do you use credit cards?"
-    sentence = input("Yo: ")
+# print("\n\t\tHablemos! (escribe 'salir' para terminar)")
+
+def botAnswer(userText):
+    sentence = userText
     if sentence == "salir":
-        break
+        pass
 
     POS_list = []
     # NLTK Tagging spanish words
@@ -66,11 +67,13 @@ while True:
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"] and tag != "cotizar":
-                print(colored(f"{bot_name}: {random.choice(intent['responses'])}", "cyan"))
+                botResponse = random.choice(intent['responses'])
+                return botResponse
+                # print(colored(f"{bot_name}: {random.choice(intent['responses'])}", "cyan"))
             elif tag == "cotizar" and tag == intent["tag"]:
                 print(colored(f"{bot_name}:",'cyan'))
                 print(colored("************************BUSCANDO PRODUCTO************************", 'magenta'))
-                findProduct(POS_list, sentence)
-                
+                productAnswer = findProduct(POS_list, sentence)
+                return productAnswer           
     else:
-        print(colored(f"{bot_name}: No entiendo .... :(", "red"))
+        return 'No entiendo... F'
