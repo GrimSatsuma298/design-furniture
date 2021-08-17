@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
+const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index');
 const productsRouter = require('./routes/products');
@@ -17,6 +18,13 @@ const app = express();
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
+// ************* MIDDLEWARES ****************
+app.use(methodOverride('_method'))
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
