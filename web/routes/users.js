@@ -17,5 +17,8 @@ router.post('/register', userValidator, userController.sendRegister) // Send reg
 router.get('/logout', userController.logout);
 
 
+router.post('/message', userController.message)
+
+
 
 module.exports = router;

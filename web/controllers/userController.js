@@ -1,6 +1,7 @@
-const { validationResult } = require("express-validator");
+const { validationResult, body } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
+const httpRequest = require("request");
 
 const controller = {
   login: (req, res) => {
@@ -123,9 +124,28 @@ const controller = {
   },
   logout: (req, res) => {
     // Clean cookies
-    res.clearCookie('userEmail');
+    res.clearCookie("userEmail");
     req.session.destroy();
     return res.redirect("/");
+  },
+  message: (req, res) => {
+    //  Making POST method to Flask Server
+    httpRequest({
+      method:'POST',
+      form: {message:req.body.message},
+      url: 'http://localhost:3002/bot/response'
+    }, function (err, postRes, body) {
+      if (err) {
+        res.end( JSON.stringify( err ) );
+      }
+      else {
+        console.log("******************ANSWER******************")
+        console.log(body)
+        res.end(  body  );
+      }
+    });
+    
+
   },
 };
 

@@ -39,7 +39,8 @@ var botHTML = `
   </div>
   <!-- User input box -->
   <div class="chat-bar-input-block">
-    <div id="userInput">
+    <div id="userInput">   
+    <form action="user/message" method="post" id="form-userMessage">
       <input
         type="text"
         id="textInput"
@@ -47,6 +48,7 @@ var botHTML = `
         name="msg"
         placeholder="Tap 'Enter' to send message"
       />
+  </form> 
       <p></p>
     </div>
 

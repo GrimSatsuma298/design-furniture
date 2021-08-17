@@ -1,18 +1,17 @@
 var buttonBot = document.getElementById("chat-button");
 var closeChat = document.getElementById("close-tag");
-var title = document.getElementsByClassName("chat-title");
 var container = document.querySelector(".chat-container");
 var chatbox = document.querySelector("#chatbox");
 var content = buttonBot.nextElementSibling;
 
 
 // Collapse
-buttonBot.onclick = ()=>{
+buttonBot.onclick = () => {
   // Show chat view
-  content.style.display = "block"; 
+  content.style.display = "block";
 };
 
-closeChat.onclick = ()=>{
+closeChat.onclick = () => {
   // Hide chat view
   content.style.display = "none";
 };
@@ -31,13 +30,12 @@ function getTime() {
 }
 
 function firstBotMessage() {
-  let firstMessage = "Hello there";
+  let firstMessage = "Escribe para comenzar";
   document.getElementById("botStarterMessage").innerHTML =
     '<p class="botText"><span>' + firstMessage + "</span></p>";
 
   let time = getTime();
   $("#chat-timestamp").append(time);
-
 }
 
 function getHardResponse(userText) {
@@ -46,15 +44,44 @@ function getHardResponse(userText) {
   let timestamp = '<h5 id="chat-timestamp">' + time + "</h5>";
   let botHTML = '<p class="botText"><span>' + botResponse + "</span></p>";
   $("#chatbox").append(timestamp); // Adds the response hour
-  $("#chatbox").append(botHTML);  container.scrollTop = chatbox.scrollHeight;
-    // Go to last bot response
+  $("#chatbox").append(botHTML);
   container.scrollTop = chatbox.scrollHeight;
+  // Go to last bot response
+  container.scrollTop = chatbox.scrollHeight;
+}
 
-
+function sendAjax(URL_address, message) {
+  $.ajax({
+    data: { message: message },
+    type: "POST",
+    dataType: "json",
+    url: URL_address, // http://localhost:3002/bot/response
+    success: function (response, status, jqXHR) {
+      console.log("*********ANSWER CONTROLLER RECEIVED*********");
+      console.log(response);
+      saveAnswer(response);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.log("*********ERROR*********");
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+}
+// Global variable in order to extract async responses
+var answerReal;
+function saveAnswer(text) {
+  answerReal = text;
 }
 
 function getResponse() {
   let userText = $("#textInput").val();
+  $("#form-userMessage").on("submit", function (event) {
+    event.preventDefault();
+  });
+  sendAjax("user/message", userText);
+
   userText = userText != "" ? userText : "Empty text";
   let userHTML = '<p class="userText"><span>' + userText + "</span></p>";
   $("#textInput").val("");
@@ -68,7 +95,12 @@ function getResponse() {
 
   setTimeout(() => {
     deleteLoadingDots();
-    getHardResponse(userText);
+    if (answerReal.answer){
+      getHardResponse(answerReal.answer);
+    }else{
+      getHardResponse('Server Down')
+    }
+    
   }, 2000);
 }
 

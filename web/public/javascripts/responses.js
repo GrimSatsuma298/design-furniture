@@ -1,3 +1,3 @@
-function getBotResponse(userText){
-    return "Test Response";
+function getBotResponse(botanswer){
+    return botanswer;
 }
