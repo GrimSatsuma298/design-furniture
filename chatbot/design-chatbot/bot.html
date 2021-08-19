@@ -1,28 +1,29 @@
 <!-- CHAT BAR BLOCK -->
 <button id="chat-button" , type="button" class="collapsible">
-    <img src="/images/logo.png" alt="" />
-  </button>
-  <div class="chat-bar-collapsible">
-    <div class="chat-title">
-      <span>EXO BOT</span>
-      <div class="chat-settings">
-        <button type="button" id="close-tag">
-          <i class="far fa-times-circle"></i>
-        </button>
-      </div>
+  <img src="/images/logo.png" alt="" />
+</button>
+<div class="chat-bar-collapsible">
+  <div class="chat-title">
+    <span>EXO BOT</span>
+    <div class="chat-settings">
+      <button type="button" id="close-tag">
+        <i class="far fa-times-circle"></i>
+      </button>
     </div>
-    <!-- Messages -->
-    <div class="chat-container">
-      <div id="chatbox">
-        <h5 id="chat-timestamp"></h5>
-        <p id="botStarterMessage" class="botText">
-          <span>Cargando...</span>
-        </p>
-      </div>
+  </div>
+  <!-- Messages -->
+  <div class="chat-container">
+    <div id="chatbox">
+      <h5 id="chat-timestamp"></h5>
+      <p id="botStarterMessage" class="botText">
+        <span>Cargando...</span>
+      </p>
     </div>
-    <!-- User input box -->
-    <div class="chat-bar-input-block">
-      <div id="userInput">
+  </div>
+  <!-- User input box -->
+  <div class="chat-bar-input-block">
+    <div id="userInput">
+      <form action="/message" method="post">
         <input
           type="text"
           id="textInput"
@@ -30,25 +31,26 @@
           name="msg"
           placeholder="Tap 'Enter' to send message"
         />
-        <p></p>
-      </div>
-
-      <div class="chat-bar-icons">
-        <i
-          id="chat-icon"
-          style="color: crimson"
-          class="fa fa-fw fa-heart"
-          onclick="heartButton()"
-        ></i>
-        <i
-          id="chat-icon"
-          style="color: #333"
-          class="fa fa-fw fa-send"
-          onclick="sendButton()"
-        ></i>
-      </div>
-    </div>
-    <div id="chat-bar-bottom">
+      </form>
       <p></p>
     </div>
+
+    <div class="chat-bar-icons">
+      <i
+        id="chat-icon"
+        style="color: crimson"
+        class="fa fa-fw fa-heart"
+        onclick="heartButton()"
+      ></i>
+      <i
+        id="chat-icon"
+        style="color: #333"
+        class="fa fa-fw fa-send"
+        onclick="sendButton()"
+      ></i>
+    </div>
   </div>
+  <div id="chat-bar-bottom">
+    <p></p>
+  </div>
+</div>
