@@ -7,9 +7,6 @@ function userLogged(req, res, next) {
   let userFromCookie = User.findByField('email', emailCookie);
 
   // If user exists create session with credentials in browser
-  if(userFromCookie){
-    req.session.userLogged = userFromCookie
-  }
 
   res.locals.user = req.session.userLogged || undefined;
 
