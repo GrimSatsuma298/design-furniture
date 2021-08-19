@@ -38,8 +38,8 @@ function firstBotMessage() {
   $("#chat-timestamp").append(time);
 }
 
-function getHardResponse(userText) {
-  let botResponse = getBotResponse(userText);
+function getBotResponse(botText) {
+  let botResponse = botText;
   let time = getTime();
   let timestamp = '<h5 id="chat-timestamp">' + time + "</h5>";
   let botHTML = '<p class="botText"><span>' + botResponse + "</span></p>";
@@ -96,9 +96,10 @@ function getResponse() {
   setTimeout(() => {
     deleteLoadingDots();
     if (answerReal.answer){
-      getHardResponse(answerReal.answer);
+      getBotResponse(answerReal.answer);
+      saveSessionChat(userText, answerReal.answer)
     }else{
-      getHardResponse('Server Down')
+      getBotResponse('Server Down')
     }
     
   }, 2000);

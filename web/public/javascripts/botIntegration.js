@@ -4,10 +4,10 @@ var chatScript = document.createElement("script");
 chatScript.src = "/javascripts/chat.js";
 chatScript.type = "text/javascript";
 chatScript.defer = true;
-var resScript = document.createElement("script");
-resScript.src = "/javascripts/responses.js";
-resScript.type = "text/javascript";
-resScript.defer = true;
+var strScript = document.createElement("script");
+strScript.src = "/javascripts/storage.js";
+strScript.type = "text/javascript";
+strScript.defer = true;
 
 // Creating empty div to append bot
 var botTag = document.createElement("div");
@@ -74,6 +74,8 @@ var botHTML = `
   
 `;
 $(botHTML).appendTo(botTag);
-$('head').append('<link rel="stylesheet" href="/stylesheets/chat.css" />')
+$("head").append('<link rel="stylesheet" href="/stylesheets/chat.css" />');
 body.appendChild(chatScript);
-body.appendChild(resScript);
+body.appendChild(strScript);
+
+
